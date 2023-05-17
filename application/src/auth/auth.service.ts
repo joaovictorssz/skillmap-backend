@@ -7,7 +7,7 @@ import { UnauthorizedException } from '@nestjs/common'
 import * as bcrypt from 'bcryptjs'
 import { SignUpDto } from './dtos/sign-up.dto';
 import { LoginDto } from './dtos/login.dto';
-import { CreateUserDto } from 'src/users/dtos/create-user.dto';
+import { CreateUserDto } from '../users/dtos/create-user.dto';
 @Injectable()
 export class AuthService {
 
@@ -54,33 +54,5 @@ export class AuthService {
         return {token}
     }
 
-    async googleLogin(req:  {msg: string, user: {
-        email: string,
-        firstName: string,
-        lastName: string
-    }})  : Promise<{token: string} | string>{
-        if (!req.user) {
-          return 'No user from google';
-        }
-        
-        const user = await this.userModel.findOne({email: req.user.email})
-        if(!user){
-
-            const user = new this.userModel({
-                name: req.user.firstName,
-                last_name: req.user.lastName,
-                email: req.user.email,
-            })
-            user.save()
-    
-            const token = this.jwtService.sign({id: user._id})
-            return {token}
-
-        }
-        if(user){
-            const token = this.jwtService.sign({id: user._id})
-            return {token}
-        }
-      }
 
 }

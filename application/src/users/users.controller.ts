@@ -28,9 +28,9 @@ export class UsersController {
         return users
     }
 
-    @Get(':name')
-    async listUserByName(@Param() param: string){
-        const user = await this.usersService.listByName(param)
+    @Get(':email')
+    async listUserByEmail(@Param() param: string){
+        const user = await this.usersService.listByEmail(param)
         return user
     }
 }
