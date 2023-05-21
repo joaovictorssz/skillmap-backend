@@ -7,6 +7,7 @@ import { UnauthorizedException } from '@nestjs/common'
 import * as bcrypt from 'bcryptjs'
 import { SignUpDto } from './dtos/sign-up.dto';
 import { LoginDto } from './dtos/login.dto';
+import { CreateUserDto } from '../users/dtos/create-user.dto';
 @Injectable()
 export class AuthService {
 
@@ -52,5 +53,6 @@ export class AuthService {
         const token = this.jwtService.sign({id: user._id})
         return {token}
     }
+
 
 }

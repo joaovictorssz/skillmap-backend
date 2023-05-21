@@ -1,6 +1,7 @@
 export interface CreateTopicDto {
     category: String
     name: String
+    img: String
     overview: {
         creators: String,
         creation_date: String,
@@ -11,12 +12,8 @@ export interface CreateTopicDto {
     };
     roadmap: {
         steps: [{
-            step_name: String,
-            step_details: String,
-            substeps: [{
-                substep_name: String,
-                substep_details: String
-            }]
+            name: String
+
         }]
     }
 }

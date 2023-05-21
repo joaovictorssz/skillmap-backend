@@ -3,6 +3,7 @@ import * as mongoose from 'mongoose'
 export const topicsSchema = new mongoose.Schema({
     category: String,
     name: String,
+    img: String,
     overview: {
         creators: String,
         creation_date: String,
@@ -13,12 +14,7 @@ export const topicsSchema = new mongoose.Schema({
     },
     roadmap: {
         steps: [{
-            step_name: String,
-            step_details: String,
-            substeps: [{
-                substep_name: String,
-                substep_details: String
-            }]
+            name: String,
         }]
     }
 

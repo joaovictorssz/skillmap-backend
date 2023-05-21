@@ -1,8 +1,7 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, UseGuards, Request } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { SignUpDto } from './dtos/sign-up.dto';
 import { LoginDto } from './dtos/login.dto';
-
 @Controller('auth')
 export class AuthController {
     constructor(
@@ -18,4 +17,10 @@ export class AuthController {
     signIn(@Body() loginDto: LoginDto) : Promise<{token: string}>{
         return this.authService.signIn(loginDto)
     }
-}
+
+
+
+
+  }
+
+
