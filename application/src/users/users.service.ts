@@ -29,9 +29,9 @@ export class UsersService {
 
     //list by name
 
-    async listByEmail(params: String) : Promise<User>{
-        const user = (await this.userModel.findOne(params))
-        return user!    
+    async listByName(params: String) : Promise<User[]>{
+        const user = (await this.userModel.find(params))
+        return user
     }
 
 }
