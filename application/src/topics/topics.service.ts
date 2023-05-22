@@ -24,4 +24,14 @@ export class TopicsService {
         return this.topicsModel.find(params)
     }
 
+    async listByCategoryAndQuantity(category: String, qtd: Number): Promise<Topics[]>{
+        const topics =  this.topicsModel.find({category: category})
+        return topics
+    }
+
+    async getTopic(id: String): Promise<Topics>{
+        const topic =  this.topicsModel.findOne({_id: id})
+        return topic
+    }
+
 }

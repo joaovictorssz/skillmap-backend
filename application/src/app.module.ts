@@ -8,9 +8,10 @@ import { ConfigModule } from '@nestjs/config';
 import { AWSController } from './aws/aws.controller';
 import { AWSModule } from './aws/aws.module';
 import { AWSService } from './aws/aws.service';
+import { QuestionariesModule } from './questionaries/questionaries.module';
 
 @Module({
-  imports: [UsersModule, TopicsModule, AuthModule, ConfigModule.forRoot({isGlobal:  true}), AWSModule],
+  imports: [UsersModule, TopicsModule, AuthModule, ConfigModule.forRoot({isGlobal:  true}), AWSModule, QuestionariesModule],
 controllers: [AppController, AWSController],
   providers: [AppService,  AWSService],
 })

@@ -15,10 +15,22 @@ export class TopicsController {
         return topics
     }
 
-    @Get(':category')
+    @Get('category/:category')
     async listByCategory(@Param() params: string){
         const topics = await this.topicsService.listByCategory(params)
         return topics
+    }
+
+    @Get('list/:category/:qtd')
+    async listByCategoryAndQuantity(@Param() params: {category:  string, qtd: number}){
+        const topics = await this.topicsService.listByCategoryAndQuantity(params.category, params.qtd)
+        return topics.slice(0, params.qtd)
+    }
+
+    @Get(':id')
+    async getTopic(@Param() params: {id:  string}){
+        const topic = await this.topicsService.getTopic(params.id)
+        return topic
     }
 
     @Post('create')

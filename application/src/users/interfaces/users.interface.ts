@@ -7,4 +7,5 @@ export interface User extends Document {
   readonly phone_number: string;
   readonly birth_date: string;
   readonly password: string;
+  readonly admin: string;
 }
