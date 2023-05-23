@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { QuestionariesService } from './questionaries.service';
 import { CreateQustionaryDto } from './dtos/create-questioary';
 
@@ -11,6 +11,12 @@ export class QuestionariesController {
     @Get('list_all')
     async getQuestionaries(){
         return await this.questionariesService.listQuestionaries()
+    }
+
+    @Get(':id')
+    async getTopic(@Param() params: {id:  string}){
+        const questionary = await this.questionariesService.getQuestionary(params.id)
+        return questionary
     }
 
     @Post('create')
