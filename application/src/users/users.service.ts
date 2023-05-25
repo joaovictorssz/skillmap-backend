@@ -34,4 +34,11 @@ export class UsersService {
         return user!    
     }
 
+    //update: push saved questionaries
+
+    async updateUser(userId: string, updatedUser: Partial<User>){
+        const user = await this.userModel.findByIdAndUpdate(userId, updatedUser, { new: true });
+        return user
+    }
+
 }

@@ -12,6 +12,7 @@ export const questionarySchema = new mongoose.Schema({
             }],
             answer: String
         }
-    ]
+    ],
+    
     
 })

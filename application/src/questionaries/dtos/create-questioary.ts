@@ -8,5 +8,6 @@ export interface CreateQustionaryDto{
             title: string
         }],
         answer: string
-    }]
+    }],
+    _id?: string
 }

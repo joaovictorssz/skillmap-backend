@@ -25,8 +25,8 @@ export class QuestionariesService {
     }
 
     async getQuestionary(id: String): Promise<Questionary>{
-        const topic =  this.questionariesModel.findOne({_id: id})
-        return topic
+        const questionary =  await this.questionariesModel.findOne({_id: id})
+        return questionary
     }
 
 }
